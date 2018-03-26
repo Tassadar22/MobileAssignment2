@@ -2,6 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Category"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/btnCatSelector"
+            android:layout_weight="1"
+            android:text="Select Category"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

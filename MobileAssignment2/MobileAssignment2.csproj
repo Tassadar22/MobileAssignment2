@@ -54,12 +54,21 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DBStore.cs" />
+    <Compile Include="DataAccess\Quiz.cs" />
+    <Compile Include="CategorySelecterActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataAccess\SQLite.cs" />
+    <Compile Include="DataAccess\SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\CategorySelector.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="GettingStarted.Xamarin" />
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
