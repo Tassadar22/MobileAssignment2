@@ -59,6 +59,9 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f040003
 			public const int btnReturntoMainMenu = 2130968579;
 			
+			// aapt resource value: 0x7f040005
+			public const int lblDatabasetest = 2130968581;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
