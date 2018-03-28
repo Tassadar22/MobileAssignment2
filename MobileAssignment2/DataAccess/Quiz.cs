@@ -22,15 +22,17 @@ namespace MobileAssignment2.DataAccess
         public int QuizID { get; set; }
         public string Question { get; set; }
         public string RightAnswer { get; set; }
-        public string WrongAnswer { get; set; }
+        public string WrongAnswer1 { get; set; }
+        public string WrongAnswer2 { get; set; }
         public QuizCategory Category { get; set; }
 
         public Quiz() { }
-        public Quiz(string quest, string rightanswer, string wronganswer, QuizCategory category)
+        public Quiz(string quest, string rightanswer, string wronganswer1, string wronganswer2, QuizCategory category)
         {
             Question = quest;
             RightAnswer = rightanswer;
-            WrongAnswer = wronganswer;
+            WrongAnswer1 = wronganswer1;
+            WrongAnswer2 = wronganswer2;
             Category =category;
         }
     }
