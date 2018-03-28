@@ -65,11 +65,35 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f040007
 			public const int btnStartQuiz = 2130968583;
 			
+			// aapt resource value: 0x7f040010
+			public const int btnSubmitAnswer = 2130968592;
+			
+			// aapt resource value: 0x7f04000a
+			public const int lblCountdown = 2130968586;
+			
 			// aapt resource value: 0x7f040006
 			public const int lblDatabasetest = 2130968582;
 			
+			// aapt resource value: 0x7f040009
+			public const int lblQuestionCount = 2130968585;
+			
 			// aapt resource value: 0x7f040008
-			public const int lblTest = 2130968584;
+			public const int lblScore = 2130968584;
+			
+			// aapt resource value: 0x7f04000d
+			public const int radioAnswer1 = 2130968589;
+			
+			// aapt resource value: 0x7f04000e
+			public const int radioAnswer2 = 2130968590;
+			
+			// aapt resource value: 0x7f04000f
+			public const int radioAnswer3 = 2130968591;
+			
+			// aapt resource value: 0x7f04000c
+			public const int radioAnswerGroup = 2130968588;
+			
+			// aapt resource value: 0x7f04000b
+			public const int txtQuestion = 2130968587;
 			
 			static Id()
 			{
