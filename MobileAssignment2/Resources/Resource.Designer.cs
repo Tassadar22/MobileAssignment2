@@ -44,8 +44,11 @@ namespace MobileAssignment2
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040004
-			public const int btnCatSelector = 2130968580;
+			// aapt resource value: 0x7f040003
+			public const int btnAll = 2130968579;
+			
+			// aapt resource value: 0x7f040005
+			public const int btnCatSelector = 2130968581;
 			
 			// aapt resource value: 0x7f040002
 			public const int btnGen = 2130968578;
@@ -56,14 +59,17 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f040001
 			public const int btnHis = 2130968577;
 			
-			// aapt resource value: 0x7f040003
-			public const int btnReturntoMainMenu = 2130968579;
+			// aapt resource value: 0x7f040004
+			public const int btnReturntoMainMenu = 2130968580;
+			
+			// aapt resource value: 0x7f040007
+			public const int btnStartQuiz = 2130968583;
 			
 			// aapt resource value: 0x7f040006
-			public const int btnStartQuiz = 2130968582;
+			public const int lblDatabasetest = 2130968582;
 			
-			// aapt resource value: 0x7f040005
-			public const int lblDatabasetest = 2130968581;
+			// aapt resource value: 0x7f040008
+			public const int lblTest = 2130968584;
 			
 			static Id()
 			{
@@ -83,6 +89,9 @@ namespace MobileAssignment2
 			
 			// aapt resource value: 0x7f020001
 			public const int Main = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int QuizLayout = 2130837506;
 			
 			static Layout()
 			{

@@ -13,9 +13,9 @@ using SQLite;
 namespace MobileAssignment2.DataAccess
 {
     //Enum for difficulty
-    public enum QuizCategory { Geography, History, General_Knowledge}
+    public enum QuizCategory { Geography, History, General_Knowledge, All}
 
-    [Table("GeographyQuiz")]
+    [Table("Quiz")]
     class Quiz
     {
         [PrimaryKey, AutoIncrement]

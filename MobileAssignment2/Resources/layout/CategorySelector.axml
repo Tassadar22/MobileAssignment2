@@ -26,12 +26,20 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnHis"
         android:layout_marginTop="10dp" />
+	<Button
+        android:id="@+id/btnAll"
+        android:text="All Questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnGen"
+        android:layout_marginTop="10dp" />
     <Button
         android:id="@+id/btnReturntoMainMenu"
         android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnGen"
+        android:layout_below="@id/btnAll"
         android:layout_marginTop="10dp" />
 </RelativeLayout>

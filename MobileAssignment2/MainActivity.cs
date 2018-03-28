@@ -11,9 +11,10 @@ namespace MobileAssignment2
     [Activity(Label = "Brass Tacks", MainLauncher = true)]
     public class MainActivity : Activity
     {
-
         Button btnCatSelector;
+        Button btnStartQuiz;
         TextView lblDatabasetest;
+        string chosenCategory;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -22,28 +23,44 @@ namespace MobileAssignment2
             SetContentView(Resource.Layout.Main);
 
             btnCatSelector = FindViewById<Button>(Resource.Id.btnCatSelector);
+            btnStartQuiz = FindViewById<Button>(Resource.Id.btnStartQuiz);
             lblDatabasetest = FindViewById<TextView>(Resource.Id.lblDatabasetest);
             DBStore dBStore = new DBStore();
             List<Quiz> quizlist = dBStore.GetQuizList();
             Quiz quiz = quizlist[0];
             lblDatabasetest.Text = quiz.Category.ToString();
             btnCatSelector.Click += BtnCatSelector_Click;
+            btnStartQuiz.Click += BtnStartQuiz_Click;
+        }
+
+        private void BtnStartQuiz_Click(object sender, System.EventArgs e)
+        {
+            //If Category is not chosen return this message
+            if (!string.IsNullOrEmpty(chosenCategory))
+            {
+                Intent MainQuiz = new Intent(this, typeof(QuizActivity));
+                MainQuiz.PutExtra("Category", chosenCategory);
+                StartActivity(MainQuiz);
+            }
+            else
+            {
+                Toast toastMsg = Toast.MakeText(this, "Please select a Quiz category", ToastLength.Long);
+                toastMsg.Show();
+            }
         }
 
         private void BtnCatSelector_Click(object sender, System.EventArgs e)
         {
             Intent QuizCategory = new Intent(this, typeof(CategorySelecterActivity));
-
-            StartActivityForResult(QuizCategory, 40);
+            StartActivityForResult(QuizCategory, 100);
         }
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             if(requestCode ==100&&resultCode==Result.Ok)
             {
-                string chosenCategory = data.GetStringExtra("ChosenCategory");
+                chosenCategory = data.GetStringExtra("ChosenCategory");
                 //Test toast to insure data is succesfully passed back to main screen
-                Toast testToast = Toast.MakeText(this, $"New Category is"+chosenCategory, ToastLength.Long);
-                testToast.Show();
+                lblDatabasetest.Text = "Chosen Category is:"+chosenCategory;
             }
         }
     }

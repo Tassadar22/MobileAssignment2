@@ -14,11 +14,12 @@ using MobileAssignment2.DataAccess;
 namespace MobileAssignment2
 {
     [Activity(Label = "Select Category")]
-    public class CategorySelecterActivity : Activity
+    public class CategorySelecterActivity : Activity  
     {
         Button btnGeo;
         Button btnHis;
         Button btnGen;
+        Button btnAll;
         Button btnReturntoMainMenu;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,12 +29,19 @@ namespace MobileAssignment2
             btnGeo = FindViewById<Button>(Resource.Id.btnGeo);
             btnHis = FindViewById<Button>(Resource.Id.btnHis);
             btnGen = FindViewById<Button>(Resource.Id.btnGen);
+            btnAll = FindViewById<Button>(Resource.Id.btnAll);
             btnReturntoMainMenu = FindViewById<Button>(Resource.Id.btnReturntoMainMenu);
 
             btnReturntoMainMenu.Click += BtnReturntoMainMenu_Click;
             btnGeo.Click += BtnGeo_Click;
             btnHis.Click += BtnHis_Click;
             btnGen.Click += BtnGen_Click;
+            btnAll.Click += BtnAll_Click;
+        }
+
+        private void BtnAll_Click(object sender, EventArgs e)
+        {
+            SetCategoryandReturn(QuizCategory.All);
         }
 
         private void BtnGen_Click(object sender, EventArgs e)
