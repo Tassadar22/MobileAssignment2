@@ -13,6 +13,7 @@ namespace MobileAssignment2
     {
         Button btnCatSelector;
         Button btnStartQuiz;
+        Button btnQuestionList;
         TextView lblDatabasetest;
         string chosenCategory;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -24,6 +25,7 @@ namespace MobileAssignment2
 
             btnCatSelector = FindViewById<Button>(Resource.Id.btnCatSelector);
             btnStartQuiz = FindViewById<Button>(Resource.Id.btnStartQuiz);
+            btnQuestionList = FindViewById<Button>(Resource.Id.btnQuestionList);
             lblDatabasetest = FindViewById<TextView>(Resource.Id.lblDatabasetest);
             DBStore dBStore = new DBStore();
             List<Quiz> quizlist = dBStore.GetQuizList();
@@ -31,6 +33,13 @@ namespace MobileAssignment2
             lblDatabasetest.Text = quiz.Category.ToString();
             btnCatSelector.Click += BtnCatSelector_Click;
             btnStartQuiz.Click += BtnStartQuiz_Click;
+            btnQuestionList.Click += BtnQuestionList_Click;
+        }
+
+        private void BtnQuestionList_Click(object sender, System.EventArgs e)
+        {
+            Intent QuestionListIntent = new Intent(this, typeof(QuestionListActivity));
+            StartActivity(QuestionListIntent);
         }
 
         private void BtnStartQuiz_Click(object sender, System.EventArgs e)
@@ -63,6 +72,7 @@ namespace MobileAssignment2
                 lblDatabasetest.Text = "Chosen Category is:"+chosenCategory;
             }
         }
+
     }
 }
 

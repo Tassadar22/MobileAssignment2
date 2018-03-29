@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -17,14 +18,21 @@ namespace MobileAssignment2
     public class QuizActivity : Activity
     {
         string Category;
+        #region FormItems
+        MediaPlayer wrongAnswerSound;
         List<Quiz> Quizlist;
         List<Quiz> ChosenList;
         RadioButton rbAnswer1;
         RadioButton rbAnswer2;
         RadioButton rbAnswer3;
-        RadioGroup radioAnswer;
+        RadioGroup radioAnswerGroup;
         TextView txtQuestion;
         Button btnSubmitAnswer;
+        #endregion
+        int correctCount = 0, questionCount = 1, questionstoask=5;
+        Quiz CurrentQuestion=new Quiz();
+        Quiz Question = new Quiz();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -34,15 +42,16 @@ namespace MobileAssignment2
             Enum.TryParse(Category, out QuizCategory category);
             //Pull Data from database
             List<Quiz> CompleteQuizlist = dBStore.GetQuizList();
-            ChosenList = GetQuizCategory(CompleteQuizlist, category);
-            //ChosenList = PullXRandomQuestions(5, ChosenList);
-            Quiz Question = ChosenList[3];
+            ChosenList = CurrentQuestion.GetQuizCategory(CompleteQuizlist, category);
+            ChosenList = CurrentQuestion.PullXRandomQuestions(5, ChosenList);
+            Question = ChosenList[0];
             txtQuestion = FindViewById<TextView>(Resource.Id.txtQuestion);
             rbAnswer1 = FindViewById<RadioButton>(Resource.Id.radioAnswer1);
             rbAnswer2 = FindViewById<RadioButton>(Resource.Id.radioAnswer2);
             rbAnswer3 = FindViewById<RadioButton>(Resource.Id.radioAnswer3);
             btnSubmitAnswer = FindViewById<Button>(Resource.Id.btnSubmitAnswer);
-            radioAnswer = FindViewById<RadioGroup>(Resource.Id.radioAnswerGroup);
+            radioAnswerGroup = FindViewById<RadioGroup>(Resource.Id.radioAnswerGroup);
+            wrongAnswerSound = MediaPlayer.Create(this, Resource.Raw.WrongAnswer);
             txtQuestion.Text = Question.Question;
             /*rbAnswer1.Text = ChosenList[0].RightAnswer;
             rbAnswer2.Text = ChosenList[0].WrongAnswer1;
@@ -56,14 +65,54 @@ namespace MobileAssignment2
         {
             if (rbAnswer1.Checked == true || rbAnswer2.Checked == true || rbAnswer3.Checked == true)
             {
-                checkAnswer();
+                RadioButton SelectedButton = FindViewById<RadioButton>(radioAnswerGroup.CheckedRadioButtonId);
+                if (CurrentQuestion.IsAnswerCorrect(SelectedButton.Text, Question))
+                {
+                    Toast ansSelect = Toast.MakeText(this, "Correct!", ToastLength.Short);
+                    ansSelect.Show();
+                    correctCount++;
+                    wrongAnswerSound.Start();
+                }
+                else
+                {
+                    Toast ansSelect = Toast.MakeText(this, "You are wrong", ToastLength.Short);
+                    ansSelect.Show();
+                    wrongAnswerSound.Start();
+                }
+                NextQuestion();
+                /*wrongAnswerSound.Start();
+                Toast ansSelect = Toast.MakeText(this, "Test", ToastLength.Long);
+                ansSelect.Show();*/
             }
             else
             {
-                Toast ansSelect = Toast.MakeText(this, "Please select an Answer", ToastLength.Long);
+                Toast ansSelect = Toast.MakeText(this, "Please select an Answer", ToastLength.Short);
                 ansSelect.Show();
             }
         }
+
+        private void NextQuestion()
+        {
+            if (questionCount <= questionstoask)
+            {
+                radioAnswerGroup.ClearCheck();
+                questionCount++;
+                Question = ChosenList[questionCount - 1];
+                RandomiseButtons(Question);
+                txtQuestion.Text = Question.Question;
+            }
+            else
+            {
+                FinishQuiz();
+            }
+
+        }
+
+        private void FinishQuiz()
+        {
+            Finish();
+        }
+
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
             Random rnd = new Random();
@@ -104,48 +153,6 @@ namespace MobileAssignment2
             }
             #endregion
         }
-        private List<Quiz> GetQuizCategory(List<Quiz> UnsortedList, QuizCategory category)
-        {
-            List<Quiz> Categorical = new List<Quiz>();
-            if (category == QuizCategory.All)
-            {
-                Categorical = UnsortedList;
-            }
-            else
-            {
-                foreach (Quiz quiz in UnsortedList)
-                {
-                    if (quiz.Category == category)
-                    {
-                        Categorical.Add(quiz);
-                    }
-                }
-            }
-            return Categorical;
-        }
-        private List<Quiz> PullXRandomQuestions(int amountToTake, List<Quiz> inputList)
-        {//Function to return n quiz questions randomly from an inputted list
-            int listsize = inputList.Count;
-            List<int> indicesToGet = new List<int>();
-            List<int> integerList = new List<int>();
-            //Generate list of integers as large as the size of the list
-            for (int i = 0; i < listsize; i++)
-            {
-                integerList.Add(i);
-            }
-            Random rnd = new Random();
-            for(int i =0;i<=amountToTake;i++)
-            {
-                int randomindex = rnd.Next(0, integerList.Count);
-                indicesToGet.Add(integerList[randomindex]);
-                integerList.Remove(indicesToGet[i]);
-            }
-            List<Quiz> OutputList = new List<Quiz>();
-            foreach(int i in indicesToGet)
-            {
-                OutputList.Add(inputList[i]);
-            }
-            return OutputList;
-        }
+       
     }
 }
