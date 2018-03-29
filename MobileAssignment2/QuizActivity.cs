@@ -54,11 +54,15 @@ namespace MobileAssignment2
 
         private void BtnSubmitAnswer_Click(object sender, EventArgs e)
         {
-            if (rbAnswer1.Checked==false|| rbAnswer2.Checked == false || rbAnswer3.Checked == false ||)
+            if (rbAnswer1.Checked == true || rbAnswer2.Checked == true || rbAnswer3.Checked == true)
             {
                 checkAnswer();
             }
-            else Toast(this, "Please select an Answer", ToastLength.Long).show();
+            else
+            {
+                Toast ansSelect = Toast.MakeText(this, "Please select an Answer", ToastLength.Long);
+                ansSelect.Show();
+            }
         }
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
