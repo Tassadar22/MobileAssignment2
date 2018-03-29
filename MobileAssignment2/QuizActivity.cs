@@ -22,7 +22,9 @@ namespace MobileAssignment2
         RadioButton rbAnswer1;
         RadioButton rbAnswer2;
         RadioButton rbAnswer3;
+        RadioGroup radioAnswer;
         TextView txtQuestion;
+        Button btnSubmitAnswer;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -39,14 +41,25 @@ namespace MobileAssignment2
             rbAnswer1 = FindViewById<RadioButton>(Resource.Id.radioAnswer1);
             rbAnswer2 = FindViewById<RadioButton>(Resource.Id.radioAnswer2);
             rbAnswer3 = FindViewById<RadioButton>(Resource.Id.radioAnswer3);
+            btnSubmitAnswer = FindViewById<Button>(Resource.Id.btnSubmitAnswer);
+            radioAnswer = FindViewById<RadioGroup>(Resource.Id.radioAnswerGroup);
             txtQuestion.Text = Question.Question;
             /*rbAnswer1.Text = ChosenList[0].RightAnswer;
             rbAnswer2.Text = ChosenList[0].WrongAnswer1;
             rbAnswer3.Text= ChosenList[0].WrongAnswer2;*/
             RandomiseButtons(Question);
+            btnSubmitAnswer.Click += BtnSubmitAnswer_Click;
             //lbltest = FindViewById<TextView>(Resource.Id.lblTest);
         }
 
+        private void BtnSubmitAnswer_Click(object sender, EventArgs e)
+        {
+            if (rbAnswer1.Checked==false|| rbAnswer2.Checked == false || rbAnswer3.Checked == false ||)
+            {
+                checkAnswer();
+            }
+            else Toast(this, "Please select an Answer", ToastLength.Long).show();
+        }
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
             Random rnd = new Random();
