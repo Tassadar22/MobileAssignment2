@@ -21,15 +21,17 @@ namespace MobileAssignment2.DataAccess
         [PrimaryKey, AutoIncrement]
         public int QuizID { get; set; }
         public string Question { get; set; }
+        public string GoogleSearchItem { get; }
         public string RightAnswer { get; set; }
         public string WrongAnswer1 { get; set; }
         public string WrongAnswer2 { get; set; }
         public QuizCategory Category { get; set; }
 
         public Quiz() { }
-        public Quiz(string quest, string rightanswer, string wronganswer1, string wronganswer2, QuizCategory category)
+        public Quiz(string quest, string googleSearchItem, string rightanswer, string wronganswer1, string wronganswer2, QuizCategory category)
         {
             Question = quest;
+            GoogleSearchItem = googleSearchItem;
             RightAnswer = rightanswer;
             WrongAnswer1 = wronganswer1;
             WrongAnswer2 = wronganswer2;

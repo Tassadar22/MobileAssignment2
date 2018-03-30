@@ -32,16 +32,31 @@ namespace MobileAssignment2
         private void LbQuestionList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             int questionClicked = e.Position;
-            string question = Quizlist[questionClicked].Question;
-            Intent googleIntent = new Intent(Intent.ActionView,Android.Net.Uri.Parse(@"http://www.google.ie/#q=" + question));
-            googleIntent.AddFlags(ActivityFlags.NewTask);
-            StartActivity(googleIntent);
+            
+            //Ask user if they want return to list, open google with questions or return to the main menu
+            var listGoogleMenu = new AlertDialog.Builder(this);
+            listGoogleMenu.SetTitle("Error");
+            listGoogleMenu.SetMessage("Would you like to learn more about this question?");
+            listGoogleMenu.SetPositiveButton("Yes", (senderAlert, args) => { ShowDetails(questionClicked); });
+            listGoogleMenu.SetNegativeButton("Finish", (senderAlert, args) => { Finish(); }); 
+            listGoogleMenu.SetNeutralButton("Go back to List", (senderAlert, args) => { }); // do nothing and return to list
+            listGoogleMenu.Show();
+            
+            
         }
 
         private void PopulateList()
         {
             DBStore quizDB = new DBStore();
             Quizlist = quizDB.GetQuizList();
+        }
+        private void ShowDetails(int position)
+        {
+         
+            string searchTerm = Quizlist[position].GoogleSearchItem;
+            Intent googleIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(@"http://www.google.ie/#q=" + searchTerm));
+            googleIntent.AddFlags(ActivityFlags.NewTask);
+            StartActivity(googleIntent);
         }
     }
 }

@@ -98,7 +98,7 @@ namespace MobileAssignment2
       
         private void NextQuestion()
         {
-            if (questionCount <= questionstoask)
+            if (questionCount < questionstoask)
             {
                 radioAnswerGroup.ClearCheck();
                 questionCount++;
