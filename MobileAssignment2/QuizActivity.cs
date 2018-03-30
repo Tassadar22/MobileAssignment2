@@ -20,13 +20,15 @@ namespace MobileAssignment2
         string Category;
         #region FormItems
         MediaPlayer wrongAnswerSound;
-        List<Quiz> Quizlist;
+        MediaPlayer rightAnswerSound;
         List<Quiz> ChosenList;
         RadioButton rbAnswer1;
         RadioButton rbAnswer2;
         RadioButton rbAnswer3;
         RadioGroup radioAnswerGroup;
         TextView txtQuestion;
+        TextView lblQuestionCount;
+        TextView lblScore;
         Button btnSubmitAnswer;
         #endregion
         int correctCount = 0, questionCount = 1, questionstoask=5;
@@ -52,6 +54,9 @@ namespace MobileAssignment2
             btnSubmitAnswer = FindViewById<Button>(Resource.Id.btnSubmitAnswer);
             radioAnswerGroup = FindViewById<RadioGroup>(Resource.Id.radioAnswerGroup);
             wrongAnswerSound = MediaPlayer.Create(this, Resource.Raw.WrongAnswer);
+            rightAnswerSound = MediaPlayer.Create(this, Resource.Raw.RightAnswer);
+            lblQuestionCount = FindViewById<TextView>(Resource.Id.lblQuestionCount);
+            lblScore = FindViewById<TextView>(Resource.Id.lblScore);
             txtQuestion.Text = Question.Question;
             /*rbAnswer1.Text = ChosenList[0].RightAnswer;
             rbAnswer2.Text = ChosenList[0].WrongAnswer1;
@@ -71,7 +76,7 @@ namespace MobileAssignment2
                     Toast ansSelect = Toast.MakeText(this, "Correct!", ToastLength.Short);
                     ansSelect.Show();
                     correctCount++;
-                    wrongAnswerSound.Start();
+                    rightAnswerSound.Start();
                 }
                 else
                 {
@@ -90,7 +95,7 @@ namespace MobileAssignment2
                 ansSelect.Show();
             }
         }
-
+      
         private void NextQuestion()
         {
             if (questionCount <= questionstoask)
@@ -100,12 +105,13 @@ namespace MobileAssignment2
                 Question = ChosenList[questionCount - 1];
                 RandomiseButtons(Question);
                 txtQuestion.Text = Question.Question;
+                lblQuestionCount.Text = $"Question: {questionCount}/5";
+                lblScore.Text = $"Score: {correctCount}";
             }
             else
             {
                 FinishQuiz();
             }
-
         }
 
         private void FinishQuiz()
@@ -121,34 +127,22 @@ namespace MobileAssignment2
             #region DefineLayouts
             switch (layout) {
                 case 1:
-                    rbAnswer1.Text = Question.RightAnswer;
-                    rbAnswer2.Text = Question.WrongAnswer1;
-                    rbAnswer3.Text = Question.WrongAnswer2;
+                    rbAnswer1.Text = Question.RightAnswer; rbAnswer2.Text = Question.WrongAnswer1; rbAnswer3.Text = Question.WrongAnswer2;
                     break;
                 case 2:
-                    rbAnswer1.Text = Question.RightAnswer;
-                    rbAnswer2.Text = Question.WrongAnswer2;
-                    rbAnswer3.Text = Question.WrongAnswer1;
+                    rbAnswer1.Text = Question.RightAnswer;rbAnswer2.Text = Question.WrongAnswer2;rbAnswer3.Text = Question.WrongAnswer1;
                     break;
                 case 3:
-                    rbAnswer1.Text = Question.WrongAnswer1;
-                    rbAnswer2.Text = Question.RightAnswer;
-                    rbAnswer3.Text = Question.WrongAnswer2;
+                    rbAnswer1.Text = Question.WrongAnswer1;rbAnswer2.Text = Question.RightAnswer;rbAnswer3.Text = Question.WrongAnswer2;
                     break;
                 case 4:
-                    rbAnswer1.Text = Question.WrongAnswer2;
-                    rbAnswer2.Text = Question.RightAnswer;
-                    rbAnswer3.Text = Question.WrongAnswer1;
+                    rbAnswer1.Text = Question.WrongAnswer2; rbAnswer2.Text = Question.RightAnswer; rbAnswer3.Text = Question.WrongAnswer1;
                     break;
                 case 5:
-                    rbAnswer1.Text = Question.WrongAnswer1;
-                    rbAnswer2.Text = Question.WrongAnswer2;
-                    rbAnswer3.Text = Question.RightAnswer;
+                    rbAnswer1.Text = Question.WrongAnswer1; rbAnswer2.Text = Question.WrongAnswer2; rbAnswer3.Text = Question.RightAnswer;
                     break;
                 case 6:
-                    rbAnswer1.Text = Question.WrongAnswer2;
-                    rbAnswer2.Text = Question.WrongAnswer1;
-                    rbAnswer3.Text = Question.RightAnswer;
+                    rbAnswer1.Text = Question.WrongAnswer2; rbAnswer2.Text = Question.WrongAnswer1; rbAnswer3.Text = Question.RightAnswer;
                     break;
             }
             #endregion
