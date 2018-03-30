@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">MobileAssignment2</string>
+  <string name="Finish">Finish</string>
+  <string name="Congratulations">Congratulations</string>
 </resources>

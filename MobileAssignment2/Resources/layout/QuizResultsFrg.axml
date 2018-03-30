@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="3">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+		android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:id="@+id/lblCongratulations"
+        android:text="@string/Congratulations" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+		android:layout_margin="20dp"
+        android:textStyle=""
+        android:text="LOREM IPSUM"
+        android:id="@+id/lblScoreDetails"
+        android:gravity="center" />
+    <Button
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:id="@+id/btnCloseResults"
+        android:text="@string/Finish" />
+</LinearLayout>

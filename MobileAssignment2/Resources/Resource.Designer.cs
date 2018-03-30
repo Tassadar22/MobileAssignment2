@@ -72,6 +72,9 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f060005
 			public const int btnCatSelector = 2131099653;
 			
+			// aapt resource value: 0x7f060017
+			public const int btnCloseResults = 2131099671;
+			
 			// aapt resource value: 0x7f060002
 			public const int btnGen = 2131099650;
 			
@@ -90,14 +93,14 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f060007
 			public const int btnStartQuiz = 2131099655;
 			
-			// aapt resource value: 0x7f060015
-			public const int btnSubmitAnswer = 2131099669;
+			// aapt resource value: 0x7f060014
+			public const int btnSubmitAnswer = 2131099668;
 			
 			// aapt resource value: 0x7f06000a
 			public const int imageViewQuiz = 2131099658;
 			
-			// aapt resource value: 0x7f06000f
-			public const int lblCountdown = 2131099663;
+			// aapt resource value: 0x7f060015
+			public const int lblCongratulations = 2131099669;
 			
 			// aapt resource value: 0x7f060006
 			public const int lblDatabasetest = 2131099654;
@@ -114,23 +117,26 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f06000d
 			public const int lblScore = 2131099661;
 			
+			// aapt resource value: 0x7f060016
+			public const int lblScoreDetails = 2131099670;
+			
 			// aapt resource value: 0x7f060009
 			public const int lvQuestionList = 2131099657;
 			
+			// aapt resource value: 0x7f060011
+			public const int radioAnswer1 = 2131099665;
+			
 			// aapt resource value: 0x7f060012
-			public const int radioAnswer1 = 2131099666;
+			public const int radioAnswer2 = 2131099666;
 			
 			// aapt resource value: 0x7f060013
-			public const int radioAnswer2 = 2131099667;
-			
-			// aapt resource value: 0x7f060014
-			public const int radioAnswer3 = 2131099668;
-			
-			// aapt resource value: 0x7f060011
-			public const int radioAnswerGroup = 2131099665;
+			public const int radioAnswer3 = 2131099667;
 			
 			// aapt resource value: 0x7f060010
-			public const int txtQuestion = 2131099664;
+			public const int radioAnswerGroup = 2131099664;
+			
+			// aapt resource value: 0x7f06000f
+			public const int txtQuestion = 2131099663;
 			
 			static Id()
 			{
@@ -159,6 +165,9 @@ namespace MobileAssignment2
 			
 			// aapt resource value: 0x7f030004
 			public const int QuizLayout = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int QuizResultsFrg = 2130903045;
 			
 			static Layout()
 			{
@@ -191,6 +200,12 @@ namespace MobileAssignment2
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f050002
+			public const int Congratulations = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int Finish = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int app_name = 2131034112;

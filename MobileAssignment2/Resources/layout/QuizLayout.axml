@@ -16,20 +16,13 @@
         android:layout_below="@id/lblScore"
         android:text="Question: 1/5" />
     <TextView
-        android:id="@+id/lblCountdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="00:30"
-        android:textSize="40sp" />
-    <TextView
         android:id="@+id/txtQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lblCountdown"
+        android:layout_below="@+id/lblQuestionCount"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="50dp"
-        android:text="Here will be the question text\nHere will be the question text\nHere will be the question text"
+        android:text="question text\nquestion text\nquestion text"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />

@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MobileAssignment2.DataAccess;
+using MobileAssignment2.Resources.layout;
 
 namespace MobileAssignment2
 {
@@ -103,7 +104,15 @@ namespace MobileAssignment2
         }
         private void FinishQuiz()
         {
-            Finish();
+            FragmentTransaction finishtxn = FragmentManager.BeginTransaction();
+            var quizData = new Bundle();
+            quizData.PutInt("quizScore",correctCount);
+            quizData.PutString("quizCategory", Category);
+            QuizResultsFrg quizresults = new QuizResultsFrg() { Arguments = quizData };
+
+            quizresults.Show(finishtxn, "Quiz Results");
+            //Finish(); 
+            
         }
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
