@@ -41,16 +41,16 @@
             android:layout_width="wrap_content"
             android:text="Start Quiz"
             android:id="@+id/btnStartQuiz" />
-	</LinearLayout>
-	<LinearLayout
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
-		<Button
+        <Button
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="View Questions to"
+            android:text="View Answers and learn more"
             android:id="@+id/btnQuestionList" />
     </LinearLayout>
 </LinearLayout>

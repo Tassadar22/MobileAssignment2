@@ -13,7 +13,7 @@ using MobileAssignment2.DataAccess;
 
 namespace MobileAssignment2
 {
-    [Activity(Label = "QuestionListActivity")]
+    [Activity(Label = "Quiz Question list")]
     public class QuestionListActivity : Activity
     {
         List<Quiz> Quizlist = new List<Quiz>();
@@ -32,17 +32,16 @@ namespace MobileAssignment2
         private void LbQuestionList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             int questionClicked = e.Position;
-            
+            string searchTerm = Quizlist[questionClicked].GoogleSearchItem;
+
             //Ask user if they want return to list, open google with questions or return to the main menu
             var listGoogleMenu = new AlertDialog.Builder(this);
-            listGoogleMenu.SetTitle("Error");
-            listGoogleMenu.SetMessage("Would you like to learn more about this question?");
-            listGoogleMenu.SetPositiveButton("Yes", (senderAlert, args) => { ShowDetails(questionClicked); });
-            listGoogleMenu.SetNegativeButton("Finish", (senderAlert, args) => { Finish(); }); 
+            //listGoogleMenu.SetTitle("Error");
+            listGoogleMenu.SetMessage($"Would you like to learn more?");
+            listGoogleMenu.SetPositiveButton("Yes", (senderAlert, args) => { ShowDetails(searchTerm); });
+            listGoogleMenu.SetNegativeButton("Return to Main menu", (senderAlert, args) => { Finish(); }); 
             listGoogleMenu.SetNeutralButton("Go back to List", (senderAlert, args) => { }); // do nothing and return to list
             listGoogleMenu.Show();
-            
-            
         }
 
         private void PopulateList()
@@ -50,11 +49,11 @@ namespace MobileAssignment2
             DBStore quizDB = new DBStore();
             Quizlist = quizDB.GetQuizList();
         }
-        private void ShowDetails(int position)
+        private void ShowDetails(string searchterm)
         {
          
-            string searchTerm = Quizlist[position].GoogleSearchItem;
-            Intent googleIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(@"http://www.google.ie/#q=" + searchTerm));
+            
+            Intent googleIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(@"http://www.google.ie/#q=" + searchterm));
             googleIntent.AddFlags(ActivityFlags.NewTask);
             StartActivity(googleIntent);
         }

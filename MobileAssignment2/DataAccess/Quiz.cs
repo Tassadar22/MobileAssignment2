@@ -21,11 +21,12 @@ namespace MobileAssignment2.DataAccess
         [PrimaryKey, AutoIncrement]
         public int QuizID { get; set; }
         public string Question { get; set; }
-        public string GoogleSearchItem { get; }
+        public string GoogleSearchItem { get; private set; }
         public string RightAnswer { get; set; }
         public string WrongAnswer1 { get; set; }
         public string WrongAnswer2 { get; set; }
         public QuizCategory Category { get; set; }
+        public int imageQuizID { get; set; }
 
         public Quiz() { }
         public Quiz(string quest, string googleSearchItem, string rightanswer, string wronganswer1, string wronganswer2, QuizCategory category)
@@ -36,6 +37,18 @@ namespace MobileAssignment2.DataAccess
             WrongAnswer1 = wronganswer1;
             WrongAnswer2 = wronganswer2;
             Category =category;
+            switch(category)
+            {
+                case QuizCategory.General_Knowledge:
+                    imageQuizID = Resource.Drawable.Generalknowledge;
+                    break;
+                case QuizCategory.Geography:
+                    imageQuizID = Resource.Drawable.Geography;
+                    break;
+                case QuizCategory.History:
+                    imageQuizID = Resource.Drawable.History;
+                    break;
+            }
         }
         public bool IsAnswerCorrect(string chosenAnswer, Quiz question)
         {

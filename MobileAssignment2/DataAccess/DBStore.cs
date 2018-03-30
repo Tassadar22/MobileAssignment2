@@ -35,7 +35,7 @@ namespace MobileAssignment2.DataAccess
                     {
 
                         //GET QUESTIONS FROM HERE https://www.quiz-questions.net/geography.php
-                        Quiz quiz1 = new Quiz("What is the capital of Turkey?","Turkey Capital", "Ankara", "Istanbul","Antalya", QuizCategory.Geography);
+                        Quiz quiz1 = new Quiz("What is the capital of Turkey?", "Ankara", "Ankara", "Istanbul","Antalya", QuizCategory.Geography);
                         Quiz quiz2 = new Quiz("On which Italian island is Palermo?", "Palermo", "Sicily", "Elba","Capri", QuizCategory.Geography);
                         Quiz quiz3 = new Quiz("What island(s), which belonged to Denmark, was independent in 1944?", "Iceland", "Iceland", "Greenland", "Faroe Island", QuizCategory.Geography);
                         Quiz quiz4 = new Quiz("What is the longest river in Europe?", "Wolga", "Wolga", "Danube", "Ural",QuizCategory.Geography);

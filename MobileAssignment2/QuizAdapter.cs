@@ -45,37 +45,20 @@ namespace MobileAssignment2
                 var inflator = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
                 quizInfoView = inflator.Inflate(Resource.Layout.QuizInfoRow, parent, false);
 
+                var quizQuestionImage = quizInfoView.FindViewById<ImageView>(Resource.Id.imageViewQuiz);
                 var quizQuestionView = quizInfoView.FindViewById<TextView>(Resource.Id.lblQuizQuestion);
                 var quizAnswerView = quizInfoView.FindViewById<TextView>(Resource.Id.lblQuizAnswer);
 
-                var qViewHolder = new QuizAdapterViewHolder(quizQuestionView, quizAnswerView);
+                var qViewHolder = new QuizAdapterViewHolder(quizQuestionImage,quizQuestionView, quizAnswerView);
 
                 quizInfoView.Tag = qViewHolder;
             }
             var cachedQuizViewHolder = quizInfoView.Tag as QuizAdapterViewHolder;
+            cachedQuizViewHolder.QuizImage.SetImageResource(QuizList[position].imageQuizID);
             cachedQuizViewHolder.QuizQuestion.Text = QuizList[position].Question;
             cachedQuizViewHolder.QuizAnswer.Text = QuizList[position].RightAnswer;
 
             return quizInfoView;
-            /*if (view != null)
-                holder = view.Tag as QuizAdapterViewHolder;*/
-
-            /*if (holder == null)
-            {
-                holder = new QuizAdapterViewHolder();
-                var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
-                //replace with your item and your holder items
-                //comment back in
-                //view = inflater.Inflate(Resource.Layout.item, parent, false);
-                //holder.Title = view.FindViewById<TextView>(Resource.Id.text);
-                quizInfoView.Tag = holder;
-            }
-
-
-            //fill in your items
-            //holder.Title.Text = "new text here";
-
-            return quizInfoView;*/
         }
 
         public override int Count
@@ -85,7 +68,6 @@ namespace MobileAssignment2
                 return QuizList.Count;
             }
         }
-
         public override Quiz this[int position]
         {
             get
@@ -93,17 +75,17 @@ namespace MobileAssignment2
                 return QuizList[position];
             }
         }
-
     }
-
     class QuizAdapterViewHolder : Java.Lang.Object
     {
         //Your adapter views to re-use
         public TextView QuizQuestion { get; }
         public TextView QuizAnswer { get; }
+        public ImageView QuizImage { get; }
 
-        public QuizAdapterViewHolder(TextView question, TextView answer)
+        public QuizAdapterViewHolder(ImageView quizimage,TextView question, TextView answer)
         {
+            QuizImage = quizimage;
             QuizQuestion = question;
             QuizAnswer = answer;
         }

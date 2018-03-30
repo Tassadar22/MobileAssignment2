@@ -58,14 +58,9 @@ namespace MobileAssignment2
             lblQuestionCount = FindViewById<TextView>(Resource.Id.lblQuestionCount);
             lblScore = FindViewById<TextView>(Resource.Id.lblScore);
             txtQuestion.Text = Question.Question;
-            /*rbAnswer1.Text = ChosenList[0].RightAnswer;
-            rbAnswer2.Text = ChosenList[0].WrongAnswer1;
-            rbAnswer3.Text= ChosenList[0].WrongAnswer2;*/
             RandomiseButtons(Question);
             btnSubmitAnswer.Click += BtnSubmitAnswer_Click;
-            //lbltest = FindViewById<TextView>(Resource.Id.lblTest);
         }
-
         private void BtnSubmitAnswer_Click(object sender, EventArgs e)
         {
             if (rbAnswer1.Checked == true || rbAnswer2.Checked == true || rbAnswer3.Checked == true)
@@ -85,9 +80,6 @@ namespace MobileAssignment2
                     wrongAnswerSound.Start();
                 }
                 NextQuestion();
-                /*wrongAnswerSound.Start();
-                Toast ansSelect = Toast.MakeText(this, "Test", ToastLength.Long);
-                ansSelect.Show();*/
             }
             else
             {
@@ -95,7 +87,6 @@ namespace MobileAssignment2
                 ansSelect.Show();
             }
         }
-      
         private void NextQuestion()
         {
             if (questionCount < questionstoask)
@@ -108,17 +99,12 @@ namespace MobileAssignment2
                 lblQuestionCount.Text = $"Question: {questionCount}/5";
                 lblScore.Text = $"Score: {correctCount}";
             }
-            else
-            {
-                FinishQuiz();
-            }
+            else FinishQuiz();
         }
-
         private void FinishQuiz()
         {
             Finish();
         }
-
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
             Random rnd = new Random();
