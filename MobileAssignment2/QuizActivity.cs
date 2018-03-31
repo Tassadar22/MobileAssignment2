@@ -22,6 +22,7 @@ namespace MobileAssignment2
         #region FormItems
         MediaPlayer wrongAnswerSound;
         MediaPlayer rightAnswerSound;
+        MediaPlayer finishQuizSound;    
         List<Quiz> ChosenList;
         RadioButton rbAnswer1;
         RadioButton rbAnswer2;
@@ -56,6 +57,7 @@ namespace MobileAssignment2
             radioAnswerGroup = FindViewById<RadioGroup>(Resource.Id.radioAnswerGroup);
             wrongAnswerSound = MediaPlayer.Create(this, Resource.Raw.WrongAnswer);
             rightAnswerSound = MediaPlayer.Create(this, Resource.Raw.RightAnswer);
+            finishQuizSound = MediaPlayer.Create(this, Resource.Raw.FinishQuiz);
             lblQuestionCount = FindViewById<TextView>(Resource.Id.lblQuestionCount);
             lblScore = FindViewById<TextView>(Resource.Id.lblScore);
             txtQuestion.Text = Question.Question;
@@ -104,6 +106,7 @@ namespace MobileAssignment2
         }
         private void FinishQuiz()
         {
+            finishQuizSound.Start();
             FragmentTransaction finishtxn = FragmentManager.BeginTransaction();
             var quizData = new Bundle();
             quizData.PutInt("quizScore",correctCount);

@@ -29,11 +29,7 @@ namespace MobileAssignment2.Resources.layout
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
             var resultDisplayFrg = inflater.Inflate(Resource.Layout.QuizResultsFrg, container, false);
-            //score = Activity.Intent.GetIntExtra("quizScore", 56);
-            //Bundle bundle = new Bundle();
             score = Arguments.GetInt("quizScore", 56);
             category = Arguments.GetString("quizCategory", "OOPS");
             
@@ -47,6 +43,12 @@ namespace MobileAssignment2.Resources.layout
             
 
             return resultDisplayFrg;
+        }
+        public override void OnActivityCreated(Bundle savedInstanceState)
+        {
+            base.OnActivityCreated(savedInstanceState);
+
+            Dialog.Window.Attributes.WindowAnimations=Resource.s
         }
     }
 }
