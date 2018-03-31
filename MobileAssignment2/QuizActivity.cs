@@ -109,7 +109,6 @@ namespace MobileAssignment2
             quizData.PutInt("quizScore",correctCount);
             quizData.PutString("quizCategory", Category);
             QuizResultsFrg quizresults = new QuizResultsFrg() { Arguments = quizData };
-
             quizresults.Show(finishtxn, "Quiz Results");
             //Finish(); 
             
