@@ -11,12 +11,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Category"
+            android:text="@string/Select_Category"
             android:layout_weight="1" />
         <Button
             android:id="@+id/btnCatSelector"
             android:layout_weight="1"
-            android:text="Select Category"
+            android:text="@string/Select_Category"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -39,7 +39,7 @@
         <Button
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Start Quiz"
+            android:text="@string/Begin_Quiz"
             android:id="@+id/btnStartQuiz" />
     </LinearLayout>
     <LinearLayout
@@ -50,7 +50,7 @@
         <Button
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="View Answers and learn more"
-            android:id="@+id/btnQuestionList" />
+            android:text="@string/View_answers_and_learn_more"
+            android:id="@+id/btnQuestionList"/>
     </LinearLayout>
 </LinearLayout>

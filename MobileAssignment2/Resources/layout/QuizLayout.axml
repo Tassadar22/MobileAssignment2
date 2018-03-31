@@ -53,5 +53,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/radioAnswerGroup"
         android:layout_marginTop="16dp"
-        android:text="Confirm" />
+        android:text="@string/Confirm"/>
 </RelativeLayout>

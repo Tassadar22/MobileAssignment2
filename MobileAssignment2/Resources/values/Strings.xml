@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">MobileAssignment2</string>
-  <string name="Finish">Finish</string>
-  <string name="Congratulations">Congratulations</string>
+	<string name="app_name">MobileAssignment2</string>
+	<string name="Finish">Finish</string>
+	<string name="Congratulations">Congratulations</string>
+	<string name="Geography">Geography</string>
+	<string name="History">History</string>
+	<string name="General_Knowledge">General Knowledge</string>
+	<string name="All_Questions">All Questions</string>
+	<string name="Return_to_Main_Menu">Return to Main Menu</string>
+	<string name="Select_Category">Select Category</string>
+	<string name="Begin_Quiz">Begin Quiz</string>
+	<string name="View_answers_and_learn_more">View answers and learn more</string>
+	<string name="Confirm">Confirm</string>
 </resources>

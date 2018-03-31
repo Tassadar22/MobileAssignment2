@@ -16,7 +16,7 @@ using MobileAssignment2.Resources.layout;
 namespace MobileAssignment2
 {
     [Activity(Label = "Quiz")]
-    public class QuizActivity : Activity
+    public class QuizActivity : Activity,IDialogInterfaceOnDismissListener
     {
         string Category;
         #region FormItems
@@ -99,7 +99,7 @@ namespace MobileAssignment2
                 Question = ChosenList[questionCount - 1];
                 RandomiseButtons(Question);
                 txtQuestion.Text = Question.Question;
-                lblQuestionCount.Text = $"Question: {questionCount}/5";
+                lblQuestionCount.Text = $"@string/"/*$"Question: {questionCount}/5"*/;
                 lblScore.Text = $"Score: {correctCount}";
             }
             else FinishQuiz();
@@ -113,9 +113,14 @@ namespace MobileAssignment2
             quizData.PutString("quizCategory", Category);
             QuizResultsFrg quizresults = new QuizResultsFrg() { Arguments = quizData };
             quizresults.Show(finishtxn, "Quiz Results");
-            //Finish(); 
-            
         }
+        void IDialogInterfaceOnDismissListener.OnDismiss(IDialogInterface dialog)
+        {
+            Finish();
+        }
+        
+
+
         private void RandomiseButtons(Quiz Question)
         {//Function randomise Where
             Random rnd = new Random();

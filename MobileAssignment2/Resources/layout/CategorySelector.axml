@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
     <Button
         android:id="@+id/btnGeo"
-        android:text="Geography"
+		android:text="@string/Geography"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -12,7 +12,7 @@
         android:padding="10dp" />
     <Button
         android:id="@+id/btnHis"
-        android:text="History"
+		android:text="@string/History"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -20,15 +20,15 @@
         android:layout_marginTop="10dp" />
     <Button
         android:id="@+id/btnGen"
-        android:text="General Knowledge"
+		android:text="@string/General_Knowledge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnHis"
         android:layout_marginTop="10dp" />
-	<Button
+    <Button
         android:id="@+id/btnAll"
-        android:text="All Questions"
+		android:text="@string/All_Questions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -36,8 +36,8 @@
         android:layout_marginTop="10dp" />
     <Button
         android:id="@+id/btnReturntoMainMenu"
-        android:text="Back"
-        android:layout_width="wrap_content"
+        android:text="@string/Return_to_Main_Menu"
+		android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnAll"

@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-	<style name="QuizAnimation">
-		<item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
-		<item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
-		<item name="android:windowEnterAnimation">@android</item>
+	<style name="quizAnimation">
+		<item name="android:windowEnterAnimation">@android:anim/fade_in</item>
 	</style>
 </resources>

@@ -19,12 +19,20 @@ namespace MobileAssignment2.Resources.layout
         Button btnCloseResults;
         string category;
         int score;
+
+        public event EventHandler<QuizResultsFrg> OnFinishButtonPress;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
 
+        }
+        public override void OnDismiss(IDialogInterface dialog)
+        {
+            base.OnDismiss(dialog);
+            Activity activity = this.Activity;
+            ((IDialogInterfaceOnDismissListener)activity).OnDismiss(dialog);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -36,11 +44,18 @@ namespace MobileAssignment2.Resources.layout
             Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
             lblScoreDetails = resultDisplayFrg.FindViewById<TextView>(Resource.Id.lblScoreDetails);
             lblScoreDetails.Text = $"You have scored {score} points in {category}";
+            //Restrict user from using back click feature so only on button press will fragment end
+            this.Dialog.SetCanceledOnTouchOutside(false);
             
-
             btnCloseResults = resultDisplayFrg.FindViewById<Button>(Resource.Id.btnCloseResults);
-            btnCloseResults.Click += (object sender, EventArgs e) => { Dismiss(); };
-            
+            btnCloseResults.Click += (object sender, EventArgs e) => 
+            {
+                /*OnFinishButtonPress(this, )
+                {
+
+                }*/
+                Dismiss();
+            };
 
             return resultDisplayFrg;
         }
@@ -48,7 +63,10 @@ namespace MobileAssignment2.Resources.layout
         {
             base.OnActivityCreated(savedInstanceState);
 
-            Dialog.Window.Attributes.WindowAnimations=Resource.s
+            //Dialog.Window.Attributes.WindowAnimations=Resource
+            Dialog.Window.Attributes.WindowAnimations = Resource.Style.quizAnimation;
+
         }
+        
     }
 }
