@@ -99,7 +99,7 @@ namespace MobileAssignment2
                 Question = ChosenList[questionCount - 1];
                 RandomiseButtons(Question);
                 txtQuestion.Text = Question.Question;
-                lblQuestionCount.Text = $"@string/"/*$"Question: {questionCount}/5"*/;
+                lblQuestionCount.Text = $"Question: {questionCount}/{questionstoask}";
                 lblScore.Text = $"Score: {correctCount}";
             }
             else FinishQuiz();

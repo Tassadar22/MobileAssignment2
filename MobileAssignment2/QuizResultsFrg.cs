@@ -19,14 +19,9 @@ namespace MobileAssignment2.Resources.layout
         Button btnCloseResults;
         string category;
         int score;
-
-        public event EventHandler<QuizResultsFrg> OnFinishButtonPress;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
-
         }
         public override void OnDismiss(IDialogInterface dialog)
         {
@@ -50,20 +45,14 @@ namespace MobileAssignment2.Resources.layout
             btnCloseResults = resultDisplayFrg.FindViewById<Button>(Resource.Id.btnCloseResults);
             btnCloseResults.Click += (object sender, EventArgs e) => 
             {
-                /*OnFinishButtonPress(this, )
-                {
-
-                }*/
                 Dismiss();
             };
-
             return resultDisplayFrg;
         }
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
 
-            //Dialog.Window.Attributes.WindowAnimations=Resource
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.quizAnimation;
 
         }

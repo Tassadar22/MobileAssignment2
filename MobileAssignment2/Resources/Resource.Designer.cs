@@ -45,13 +45,16 @@ namespace MobileAssignment2
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Generalknowledge = 2130837504;
+			public const int ButtonStyle = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Geography = 2130837505;
+			public const int Generalknowledge = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int History = 2130837506;
+			public const int Geography = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int History = 2130837507;
 			
 			static Drawable()
 			{
@@ -72,8 +75,8 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f070005
 			public const int btnCatSelector = 2131165189;
 			
-			// aapt resource value: 0x7f070017
-			public const int btnCloseResults = 2131165207;
+			// aapt resource value: 0x7f070016
+			public const int btnCloseResults = 2131165206;
 			
 			// aapt resource value: 0x7f070002
 			public const int btnGen = 2131165186;
@@ -84,59 +87,56 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f070001
 			public const int btnHis = 2131165185;
 			
-			// aapt resource value: 0x7f070008
-			public const int btnQuestionList = 2131165192;
+			// aapt resource value: 0x7f070007
+			public const int btnQuestionList = 2131165191;
 			
 			// aapt resource value: 0x7f070004
 			public const int btnReturntoMainMenu = 2131165188;
 			
-			// aapt resource value: 0x7f070007
-			public const int btnStartQuiz = 2131165191;
-			
-			// aapt resource value: 0x7f070014
-			public const int btnSubmitAnswer = 2131165204;
-			
-			// aapt resource value: 0x7f07000a
-			public const int imageViewQuiz = 2131165194;
-			
-			// aapt resource value: 0x7f070015
-			public const int lblCongratulations = 2131165205;
-			
 			// aapt resource value: 0x7f070006
-			public const int lblDatabasetest = 2131165190;
-			
-			// aapt resource value: 0x7f07000e
-			public const int lblQuestionCount = 2131165198;
-			
-			// aapt resource value: 0x7f07000c
-			public const int lblQuizAnswer = 2131165196;
-			
-			// aapt resource value: 0x7f07000b
-			public const int lblQuizQuestion = 2131165195;
-			
-			// aapt resource value: 0x7f07000d
-			public const int lblScore = 2131165197;
-			
-			// aapt resource value: 0x7f070016
-			public const int lblScoreDetails = 2131165206;
-			
-			// aapt resource value: 0x7f070009
-			public const int lvQuestionList = 2131165193;
-			
-			// aapt resource value: 0x7f070011
-			public const int radioAnswer1 = 2131165201;
-			
-			// aapt resource value: 0x7f070012
-			public const int radioAnswer2 = 2131165202;
+			public const int btnStartQuiz = 2131165190;
 			
 			// aapt resource value: 0x7f070013
-			public const int radioAnswer3 = 2131165203;
+			public const int btnSubmitAnswer = 2131165203;
+			
+			// aapt resource value: 0x7f070009
+			public const int imageViewQuiz = 2131165193;
+			
+			// aapt resource value: 0x7f070014
+			public const int lblCongratulations = 2131165204;
+			
+			// aapt resource value: 0x7f07000d
+			public const int lblQuestionCount = 2131165197;
+			
+			// aapt resource value: 0x7f07000b
+			public const int lblQuizAnswer = 2131165195;
+			
+			// aapt resource value: 0x7f07000a
+			public const int lblQuizQuestion = 2131165194;
+			
+			// aapt resource value: 0x7f07000c
+			public const int lblScore = 2131165196;
+			
+			// aapt resource value: 0x7f070015
+			public const int lblScoreDetails = 2131165205;
+			
+			// aapt resource value: 0x7f070008
+			public const int lvQuestionList = 2131165192;
 			
 			// aapt resource value: 0x7f070010
-			public const int radioAnswerGroup = 2131165200;
+			public const int radioAnswer1 = 2131165200;
+			
+			// aapt resource value: 0x7f070011
+			public const int radioAnswer2 = 2131165201;
+			
+			// aapt resource value: 0x7f070012
+			public const int radioAnswer3 = 2131165202;
 			
 			// aapt resource value: 0x7f07000f
-			public const int txtQuestion = 2131165199;
+			public const int radioAnswerGroup = 2131165199;
+			
+			// aapt resource value: 0x7f07000e
+			public const int txtQuestion = 2131165198;
 			
 			static Id()
 			{

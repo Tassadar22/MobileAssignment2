@@ -1,45 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="110">
     <Button
-        android:id="@+id/btnGeo"
-		android:text="@string/Geography"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:padding="10dp" />
+		android:background="@drawable/buttonstyle"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/Geography"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:id="@+id/btnGeo" />
+	<Button
+		android:background="@drawable/buttonstyle"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/History"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:id="@+id/btnHis" />
     <Button
-        android:id="@+id/btnHis"
-		android:text="@string/History"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnGeo"
-        android:layout_marginTop="10dp" />
+		android:background="@drawable/buttonstyle"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/General_Knowledge"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:id="@+id/btnGen" />
+	<Button
+		android:background="@drawable/buttonstyle"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/All_Questions"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:id="@+id/btnAll" />
     <Button
-        android:id="@+id/btnGen"
-		android:text="@string/General_Knowledge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnHis"
-        android:layout_marginTop="10dp" />
-    <Button
-        android:id="@+id/btnAll"
-		android:text="@string/All_Questions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnGen"
-        android:layout_marginTop="10dp" />
-    <Button
-        android:id="@+id/btnReturntoMainMenu"
+		android:background="@drawable/buttonstyle"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/Return_to_Main_Menu"
-		android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnAll"
-        android:layout_marginTop="10dp" />
-</RelativeLayout>
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:id="@+id/btnReturntoMainMenu" />
+</LinearLayout>

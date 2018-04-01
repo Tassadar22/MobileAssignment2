@@ -36,7 +36,6 @@ namespace MobileAssignment2
 
             //Ask user if they want return to list, open google with questions or return to the main menu
             var listGoogleMenu = new AlertDialog.Builder(this);
-            //listGoogleMenu.SetTitle("Error");
             listGoogleMenu.SetMessage($"Would you like to learn more?");
             listGoogleMenu.SetPositiveButton("Yes", (senderAlert, args) => { ShowDetails(searchTerm); });
             listGoogleMenu.SetNegativeButton("Return to Main menu", (senderAlert, args) => { Finish(); }); 
