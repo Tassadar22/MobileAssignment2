@@ -38,5 +38,6 @@
         android:text="@string/View_answers_and_learn_more"
         android:textAllCaps="false"
         android:textSize="20sp"
-        android:id="@+id/btnQuestionList" />
+        android:id="@+id/btnQuestionList"
+		android:background="@drawable/buttonstyle"/>
 </LinearLayout>

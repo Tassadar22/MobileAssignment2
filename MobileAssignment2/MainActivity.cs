@@ -21,7 +21,6 @@ namespace MobileAssignment2
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
-
             btnCatSelector = FindViewById<Button>(Resource.Id.btnCatSelector);
             btnStartQuiz = FindViewById<Button>(Resource.Id.btnStartQuiz);
             btnQuestionList = FindViewById<Button>(Resource.Id.btnQuestionList);
@@ -61,7 +60,7 @@ namespace MobileAssignment2
             StartActivityForResult(QuizCategory, 100);
         }
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
-        {
+        {//When Category has been succesfully selected put string into string Category
             if(requestCode ==100&&resultCode==Result.Ok)
             {
                 chosenCategory = data.GetStringExtra("ChosenCategory");

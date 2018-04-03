@@ -17,14 +17,13 @@ namespace MobileAssignment2.Resources.layout
     {
         TextView lblScoreDetails;
         Button btnCloseResults;
-        string category;
         int score;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
         public override void OnDismiss(IDialogInterface dialog)
-        {
+        {//Dismiss device after completion
             base.OnDismiss(dialog);
             Activity activity = this.Activity;
             ((IDialogInterfaceOnDismissListener)activity).OnDismiss(dialog);
@@ -33,13 +32,18 @@ namespace MobileAssignment2.Resources.layout
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var resultDisplayFrg = inflater.Inflate(Resource.Layout.QuizResultsFrg, container, false);
-            score = Arguments.GetInt("quizScore", 56);
-            category = Arguments.GetString("quizCategory", "OOPS");
-            
+            score = Arguments.GetInt("quizScore", 56); //Impossibly high value entered for debugging purposes
             Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
             lblScoreDetails = resultDisplayFrg.FindViewById<TextView>(Resource.Id.lblScoreDetails);
-            lblScoreDetails.Text = $"You have scored {score} points in {category}";
-            //Restrict user from using back click feature so only on button press will fragment end
+            string resultdetails;
+            if (score==1)
+            {
+                resultdetails = $"You have scored 1 point";
+            }
+            else resultdetails = $"You have scored {score} points";
+            lblScoreDetails.Text = resultdetails;
+            
+            //Restrict user from using background click feature so only on button press will fragment end
             this.Dialog.SetCanceledOnTouchOutside(false);
             
             btnCloseResults = resultDisplayFrg.FindViewById<Button>(Resource.Id.btnCloseResults);
@@ -52,7 +56,6 @@ namespace MobileAssignment2.Resources.layout
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.quizAnimation;
 
         }
