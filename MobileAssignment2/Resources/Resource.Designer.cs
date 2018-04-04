@@ -210,9 +210,6 @@ namespace MobileAssignment2
 			// aapt resource value: 0x7f050009
 			public const int Begin_Quiz = 2131034121;
 			
-			// aapt resource value: 0x7f05000b
-			public const int Confirm = 2131034123;
-			
 			// aapt resource value: 0x7f050002
 			public const int Congratulations = 2131034114;
 			
@@ -233,6 +230,9 @@ namespace MobileAssignment2
 			
 			// aapt resource value: 0x7f050008
 			public const int Select_Category = 2131034120;
+			
+			// aapt resource value: 0x7f05000b
+			public const int Submit = 2131034123;
 			
 			// aapt resource value: 0x7f05000a
 			public const int View_answers_and_learn_more = 2131034122;

@@ -15,7 +15,6 @@ namespace MobileAssignment2
 {
     class QuizAdapter : BaseAdapter<Quiz>
     {
-
         Context context;
         public List<Quiz> QuizList { get; }
 
@@ -24,22 +23,17 @@ namespace MobileAssignment2
             this.context = context;
             QuizList = quizes;
         }
-
-
         public override Java.Lang.Object GetItem(int position)
         {
             return position;
         }
-
         public override long GetItemId(int position)
         {
             return position;
         }
-
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var quizInfoView = convertView;
-            
             if(quizInfoView==null)
             {
                 var inflator = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
@@ -50,7 +44,6 @@ namespace MobileAssignment2
                 var quizAnswerView = quizInfoView.FindViewById<TextView>(Resource.Id.lblQuizAnswer);
 
                 var qViewHolder = new QuizAdapterViewHolder(quizQuestionImage,quizQuestionView, quizAnswerView);
-
                 quizInfoView.Tag = qViewHolder;
             }
             var cachedQuizViewHolder = quizInfoView.Tag as QuizAdapterViewHolder;
@@ -78,7 +71,6 @@ namespace MobileAssignment2
     }
     class QuizAdapterViewHolder : Java.Lang.Object
     {
-        //Your adapter views to re-use
         public TextView QuizQuestion { get; }
         public TextView QuizAnswer { get; }
         public ImageView QuizImage { get; }

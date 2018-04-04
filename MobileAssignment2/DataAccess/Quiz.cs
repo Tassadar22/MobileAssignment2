@@ -66,7 +66,7 @@ namespace MobileAssignment2.DataAccess
             int listsize = inputList.Count; 
             List<int> indicesToGet = new List<int>();
             List<int> integerList = new List<int>();
-            //Generate list of integers as large as the number of required requestions
+            //Generate list of integers as large as the number of required questions
             for (int i = 0; i < listsize; i++)
             {
                 integerList.Add(i);
@@ -86,7 +86,7 @@ namespace MobileAssignment2.DataAccess
             return OutputList;
         }
         public List<Quiz> GetQuizCategory(List<Quiz> UnsortedList, QuizCategory category)
-        {//Function to return list of quiz questions based off of category input by user
+        {//Function to return list of quiz questions based off of category selected by user
             List<Quiz> Categorical = new List<Quiz>();
             if (category == QuizCategory.All)
             {

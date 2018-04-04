@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:weightSum="110">
     <Button
-		android:background="@drawable/buttonstyle"
+        android:background="@drawable/buttonstyle"
         android:layout_width="match_parent"
         android:layout_weight="20"
         android:layout_height="0dp"
@@ -16,12 +16,12 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         android:id="@+id/btnGeo" />
-	<Button
-		android:background="@drawable/buttonstyle"
+    <Button
+        android:background="@drawable/buttonstyle"
         android:layout_width="match_parent"
         android:layout_weight="20"
         android:layout_height="0dp"
-		android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/History"
@@ -29,23 +29,23 @@
         android:textSize="20sp"
         android:id="@+id/btnHis" />
     <Button
-		android:background="@drawable/buttonstyle"
+        android:background="@drawable/buttonstyle"
         android:layout_width="match_parent"
         android:layout_weight="20"
         android:layout_height="0dp"
-		android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/General_Knowledge"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:id="@+id/btnGen" />
-	<Button
-		android:background="@drawable/buttonstyle"
+    <Button
+        android:background="@drawable/buttonstyle"
         android:layout_width="match_parent"
         android:layout_weight="20"
         android:layout_height="0dp"
-		android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/All_Questions"
@@ -53,11 +53,11 @@
         android:textSize="20sp"
         android:id="@+id/btnAll" />
     <Button
-		android:background="@drawable/buttonstyle"
+        android:background="@drawable/buttonstyle"
         android:layout_width="match_parent"
         android:layout_weight="20"
         android:layout_height="0dp"
-		android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/Return_to_Main_Menu"

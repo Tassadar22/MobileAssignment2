@@ -32,7 +32,7 @@ namespace MobileAssignment2.Resources.layout
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var resultDisplayFrg = inflater.Inflate(Resource.Layout.QuizResultsFrg, container, false);
-            score = Arguments.GetInt("quizScore", 56); //Impossibly high value entered for debugging purposes
+            score = Arguments.GetInt("quizScore", 56); //Impossibly high value entered for debugging purposes, maximum attainable score is 5
             Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
             lblScoreDetails = resultDisplayFrg.FindViewById<TextView>(Resource.Id.lblScoreDetails);
             string resultdetails;
@@ -41,7 +41,7 @@ namespace MobileAssignment2.Resources.layout
                 resultdetails = $"You have scored 1 point";
             }
             else resultdetails = $"You have scored {score} points";
-            lblScoreDetails.Text = resultdetails;
+            lblScoreDetails.Text = resultdetails; //Display results
             
             //Restrict user from using background click feature so only on button press will fragment end
             this.Dialog.SetCanceledOnTouchOutside(false);
@@ -54,7 +54,7 @@ namespace MobileAssignment2.Resources.layout
             return resultDisplayFrg;
         }
         public override void OnActivityCreated(Bundle savedInstanceState)
-        {
+        {//Implement animation
             base.OnActivityCreated(savedInstanceState);
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.quizAnimation;
 

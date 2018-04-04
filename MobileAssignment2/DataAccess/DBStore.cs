@@ -33,8 +33,6 @@ namespace MobileAssignment2.DataAccess
                     TableQuery<Quiz> quizAddingQuery = cxn.Table<Quiz>();
                     if(quizAddingQuery.Count()==0)
                     {
-
-                        //GET QUESTIONS FROM HERE https://www.quiz-questions.net/geography.php
                         Quiz quiz1 = new Quiz("What is the capital of Turkey?", "Ankara", "Ankara", "Istanbul","Antalya", QuizCategory.Geography);
                         Quiz quiz2 = new Quiz("On which Italian island is Palermo?", "Palermo", "Sicily", "Elba","Capri", QuizCategory.Geography);
                         Quiz quiz3 = new Quiz("What island(s), which belonged to Denmark, was independent in 1944?", "Iceland", "Iceland", "Greenland", "Faroe Island", QuizCategory.Geography);

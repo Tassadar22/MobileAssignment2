@@ -46,9 +46,9 @@ namespace MobileAssignment2
             Category = Intent.GetStringExtra("Category");
             Enum.TryParse(Category, out QuizCategory category);
             //Pull Data from database
-            List<Quiz> CompleteQuizlist = dBStore.GetQuizList();
-            ChosenList = CurrentQuestion.GetQuizCategory(CompleteQuizlist, category);
-            ChosenList = CurrentQuestion.PullXRandomQuestions(5, ChosenList);
+            List<Quiz> CompleteQuizlist = dBStore.GetQuizList(); //Extract questions from database
+            ChosenList = CurrentQuestion.GetQuizCategory(CompleteQuizlist, category);//Pass into second list with category selected
+            ChosenList = CurrentQuestion.PullXRandomQuestions(5, ChosenList);//
             Question = ChosenList[0];
             #region LayoutWireUP
             txtQuestion = FindViewById<TextView>(Resource.Id.txtQuestion);
@@ -113,20 +113,18 @@ namespace MobileAssignment2
             FragmentTransaction finishtxn = FragmentManager.BeginTransaction();
             var quizData = new Bundle();
             quizData.PutInt("quizScore",correctCount); 
-            //quizData.PutString("quizCategory", Category);
             QuizResultsFrg quizresults = new QuizResultsFrg() { Arguments = quizData };
             quizresults.Show(finishtxn, "Quiz Results");
         }
         void IDialogInterfaceOnDismissListener.OnDismiss(IDialogInterface dialog)
-        {
+        {//On Dismiss of the fragment Finish activity
             Finish();
         }
-        
         private void RandomiseButtons(Quiz Question)
-        {//Correct Answers within class objects are stored as first question asked, this function randomises the layout
+        {//Correct Answers within Quiz Class are stored with the first answer being the correct one, this method randomises the questions which appear
             Random rnd = new Random();
             int layout = rnd.Next(1, 7);
-            //Define possible layouts
+            //Define possible layouts and use rand object to randomly use them to populate data
             #region DefineLayouts
             switch (layout) {
                 case 1:

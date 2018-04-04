@@ -14,7 +14,7 @@ namespace MobileAssignment2
         Button btnCatSelector;
         Button btnStartQuiz;
         Button btnQuestionList;
-        string chosenCategory;
+        string chosenCategory;//string to force user to select category
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,9 +24,7 @@ namespace MobileAssignment2
             btnCatSelector = FindViewById<Button>(Resource.Id.btnCatSelector);
             btnStartQuiz = FindViewById<Button>(Resource.Id.btnStartQuiz);
             btnQuestionList = FindViewById<Button>(Resource.Id.btnQuestionList);
-            DBStore dBStore = new DBStore();
-            List<Quiz> quizlist = dBStore.GetQuizList();
-            Quiz quiz = quizlist[0];
+      
             btnCatSelector.Click += BtnCatSelector_Click;
             btnStartQuiz.Click += BtnStartQuiz_Click;
             btnQuestionList.Click += BtnQuestionList_Click;
@@ -40,7 +38,7 @@ namespace MobileAssignment2
 
         private void BtnStartQuiz_Click(object sender, System.EventArgs e)
         {
-            //If Category is not chosen return this message
+         //Only allow quiz to begin if user has chosen a category   
             if (!string.IsNullOrEmpty(chosenCategory))
             {
                 Intent MainQuiz = new Intent(this, typeof(QuizActivity));
@@ -48,19 +46,18 @@ namespace MobileAssignment2
                 StartActivity(MainQuiz);
             }
             else
-            {
+            {//If Category is not chosen return this message
                 Toast toastMsg = Toast.MakeText(this, "Please select a Quiz category", ToastLength.Long);
                 toastMsg.Show();
             }
         }
-
         private void BtnCatSelector_Click(object sender, System.EventArgs e)
         {
             Intent QuizCategory = new Intent(this, typeof(CategorySelecterActivity));
             StartActivityForResult(QuizCategory, 100);
         }
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
-        {//When Category has been succesfully selected put string into string Category
+        {//When Category has been succesfully take category chosen as string and pass and allow quiz to begin but only upon receiving correct result code
             if(requestCode ==100&&resultCode==Result.Ok)
             {
                 chosenCategory = data.GetStringExtra("ChosenCategory");

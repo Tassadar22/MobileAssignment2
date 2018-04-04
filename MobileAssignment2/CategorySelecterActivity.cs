@@ -61,7 +61,7 @@ namespace MobileAssignment2
         
         private void SetCategoryandReturn(QuizCategory category)
         {
-            //Return to main menu with chosen category
+            //Return to main menu with chosen category and result code to reflect this
             Intent returnMainResult = new Intent();
             returnMainResult.PutExtra("ChosenCategory", category.ToString());
             SetResult(Result.Ok, returnMainResult);
@@ -70,7 +70,7 @@ namespace MobileAssignment2
 
         private void BtnReturntoMainMenu_Click(object sender, EventArgs e)
         {
-            //Return to main menu unchanged
+            //Return to main menu unchanged and warn 
             var returnWarningMsg = new AlertDialog.Builder(this);
             returnWarningMsg.SetTitle("Error");
             returnWarningMsg.SetMessage("Are you sure you want to return to the Main Menu?, all changes will be lost");
